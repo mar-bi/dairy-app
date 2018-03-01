@@ -21,7 +21,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --trailing-comma none --no-semi --single-quote --write \"src/**/*.js\"",
-    "predeploy": "yarn build",
+    "predeploy": "yarn build --prefix-paths",
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
