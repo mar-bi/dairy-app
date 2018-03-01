@@ -9,4 +9,4 @@ Built with:
 - Redux,
 - styled-components
 
-Link to the [DairyApp](https:/mar-bi.github.io/dairy-app/) 
+Link to the [DairyApp](https://mar-bi.github.io/dairy-app/) 

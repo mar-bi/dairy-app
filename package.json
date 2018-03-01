@@ -1,10 +1,11 @@
 {
   "name": "dairy-app",
   "version": "0.1.0",
+  "main": "n/a",
   "description": "react, and redux dairy app",
   "author": "mar-bi",
   "license": "MIT",
-  "homepage": "https:/mar-bi.github.io/dairy-app",
+  "homepage": "https://mar-bi.github.io/dairy-app",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "prop-types": "^15.6.0",
