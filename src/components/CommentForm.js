@@ -66,7 +66,7 @@ const CommentForm = ({ active, comments, addComment }) => {
   }
 
   const handleSendButton = e => {
-    if (formInput.value){
+    if (formInput.value) {
       addComment(active, formInput.value)
       formInput.value = ''
     }
@@ -84,9 +84,7 @@ const CommentForm = ({ active, comments, addComment }) => {
         />
       </FormContainer>
       <FormButtonContainer>
-        <FormButton onClick={handleSendButton}>
-          Add comment 
-        </FormButton>
+        <FormButton onClick={handleSendButton}>Add comment</FormButton>
       </FormButtonContainer>
     </div>
   )
