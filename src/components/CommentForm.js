@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { ItemLogo } from './CommentList'
+import { AddItemButton as Button } from './AddItemBox'
 import { media } from '../style/globalStyle'
 
 const FormContainer = styled.form`
@@ -10,6 +11,9 @@ const FormContainer = styled.form`
   align-items: flex-start;
   padding: 10px 5px 10px 0;
   margin-bottom: 1rem;
+  ${media.phone`
+    margin-bottom: 0rem;  
+  `};
 `
 
 const FormLogo = styled(ItemLogo)`
@@ -32,25 +36,59 @@ const FormTextarea = styled.textarea`
 	`};
 `
 
+const FormButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const FormButton = styled(Button)`
+  display: block;
+  ${media.giant`
+    width: 130px;
+  `};
+  ${media.tablet`
+    width: 130px;
+  `};
+  ${media.phone`
+    width: 120px;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  `};
+`
+
 const CommentForm = ({ active, comments, addComment }) => {
   let formInput = null
   const handleSend = e => {
-    if (e.ctrlKey && e.charCode === 13) {
+    if (e.ctrlKey && e.charCode === 13 && formInput.value) {
+      addComment(active, formInput.value)
+      formInput.value = ''
+    }
+  }
+
+  const handleSendButton = e => {
+    if (formInput.value){
       addComment(active, formInput.value)
       formInput.value = ''
     }
   }
 
   return (
-    <FormContainer>
-      <FormLogo />
-      <FormTextarea
-        innerRef={input => {
-          formInput = input
-        }}
-        onKeyPress={handleSend}
-      />
-    </FormContainer>
+    <div>
+      <FormContainer>
+        <FormLogo />
+        <FormTextarea
+          innerRef={input => {
+            formInput = input
+          }}
+          onKeyPress={handleSend}
+        />
+      </FormContainer>
+      <FormButtonContainer>
+        <FormButton onClick={handleSendButton}>
+          Add comment 
+        </FormButton>
+      </FormButtonContainer>
+    </div>
   )
 }
 

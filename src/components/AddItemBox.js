@@ -31,7 +31,7 @@ const AddItemInput = styled.input`
 	`};
 `
 
-const AddItemButton = styled.button`
+export const AddItemButton = styled.button`
   padding: 11px 34px;
   max-height: 2.5rem;
   background-color: #27ccc0;

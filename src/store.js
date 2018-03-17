@@ -5,7 +5,6 @@ import { loadState, saveState } from './localStorage'
 const persistedState = loadState()
 
 const store = createStore(rootReducer, persistedState)
-console.log('store.getState()', store.getState())
 
 store.subscribe(() => {
   saveState(store.getState())
