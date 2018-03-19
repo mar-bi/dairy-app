@@ -6,6 +6,7 @@ import { media } from '../style/globalStyle'
 
 const StyledItemsUl = styled(ItemUl)`
   margin-top: 1rem;
+  cursor: pointer;
 `
 
 const ListItem = styled(ItemLi)`
@@ -22,9 +23,6 @@ const ListItem = styled(ItemLi)`
   ${media.phone`
 		padding: 0 0.75rem 0 1rem;
 	`};
-`
-const ItemContainer = styled.div`
-  cursor: pointer;
 `
 
 const ItemTitle = styled.h3`
@@ -73,6 +71,7 @@ const DeleteButton = styled.button`
 
 const ItemList = ({ items, active, removeItem, setActive }) => {
   const handleDelete = (e, item) => {
+    e.stopPropagation()
     e.preventDefault()
 
     if (active === item.id) {
@@ -88,11 +87,15 @@ const ItemList = ({ items, active, removeItem, setActive }) => {
   return (
     <StyledItemsUl>
       {items.map(item => (
-        <ListItem key={item.id} className={item.id === active ? 'active' : ''}>
-          <ItemContainer onClick={() => setActive(item.id)}>
+        <ListItem
+          key={item.id}
+          className={item.id === active ? 'active' : ''}
+          onClick={() => setActive(item.id)}
+        >
+          <div>
             <ItemTitle>{item.title}</ItemTitle>
             <ItemBadge>{item.numComments}</ItemBadge>
-          </ItemContainer>
+          </div>
           <DeleteButton onClick={e => handleDelete(e, item)}>
             delete
           </DeleteButton>

@@ -26,14 +26,35 @@ const StyledAside = styled.div`
 const AppDescription = styled.h3`
   font-size: 0.875rem;
   font-weight: 400;
-  color: #6f7073;
+  color: #27ccc0;
   margin: 0.5rem 0;
+`
+
+const Author = styled.p`
+  font-size: 0.75rem;
+  color: #fff;
+`
+const AuthorLink = styled.a`
+  text-decoration: none;
+  color: #fff;
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+  &:hover {
+    text-decoration: none;
+    color: #ff305a;
+  }
 `
 
 const Aside = () => (
   <StyledAside>
     <Title>dairy app</Title>
-    <AppDescription>Comment with no sense</AppDescription>
+    <AppDescription>Cool storage for your ideas</AppDescription>
+    <Author>
+      made by <AuthorLink href="https://mar-bi.github.io/">mar-bi</AuthorLink>
+    </Author>
   </StyledAside>
 )
 
